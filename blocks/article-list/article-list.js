@@ -7,7 +7,6 @@ async function fetchArticles() {
 }
 
 function buildArticle(article) {
-    console.log('article contains: ', article)
     const picture = createOptimizedPicture(article.image, article.imageAlt, true, [{ width: '750' }])
     
     const articleEl = document.createElement('li');
