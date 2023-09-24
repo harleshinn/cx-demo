@@ -58,25 +58,25 @@ main .hero img {
   min-width: 50%;
 }
 
-.hero-container .hero.home .hero-content-col p:first-child {
-  font-size: 14px;
-  font-family: GilroySemiBold;
-  padding-bottom: 8px;
-  margin-bottom: 0;
-}
-
 .hero-container .hero.home .hero-content-col h1 {
   font-size: 28px;
-  font-family: GilroyBold;
+  font-family: GilroyBold, sans-serif;
   color: var(--brand-black);
   margin: 0;
 }
 
 .hero-container .hero.home .hero-content-col p {
   font-size: 18px;
-  font-family: GilroyRegular;
+  font-family: GilroyRegular, sans-serif;
   color: var(--brand-black);
   margin-bottom: 32px;
+}
+
+.hero-container .hero.home .hero-content-col p:first-child {
+  font-size: 14px;
+  font-family: GilroySemiBold, sans-serif;
+  padding-bottom: 8px;
+  margin-bottom: 0;
 }
 
 .hero-container .hero.home .hero-content-col .button-container {
@@ -117,16 +117,11 @@ main .hero img {
 }
 
 @media (min-width: 1024px) {
-
   .hero-container .hero.home .hero-content-col {
-    padding: 40px 30px;
     height: calc(100vh - 250px);
     min-height: 500px;
     max-height: 720px;
     width: 50%;
-  }
-
-  .hero-container .hero.home .hero-content-col {
     padding: 50px 40px;
   }
 

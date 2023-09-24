@@ -32,14 +32,13 @@ async function loadFragment(path) {
 }
 
 export default async function decorate(block) {
-
   let path;
   const matches = Array.from(
     document.querySelectorAll('.fragment'),
-  ).filter(element => element.textContent.includes('http'));
+  ).filter((element) => element.textContent.includes('http'));
 
-  matches.forEach(match => {
-    var url = new URL(match.textContent.trim())
+  matches.forEach((match) => {
+    const url = new URL(match.textContent.trim());
     path = url.pathname;
   });
 
