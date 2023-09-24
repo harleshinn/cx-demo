@@ -69,12 +69,12 @@
   .form-subscribe .form-subscribe__form,
   .form-subscribe .form-subscribe__asset {
     width: 50%;
-  } 
+  }
 }
 
 /* Status Styles */
 .form-subscribe .form-subscribe__form .mktoError {
-  right: unset !important;   
+  right: unset !important;
   bottom: unset !important;
   margin-top: 4px;
   position: relative;

@@ -1,7 +1,7 @@
 footer .footer {
   max-width: 1700px;
   margin: auto;
-  padding: 0px 30px;
+  padding: 0 30px;
   box-sizing: border-box;
 }
 
@@ -22,67 +22,38 @@ footer .footer .workflow-footer {
   font-size: 16px;
   margin: 0 -15px;
 }
+
 footer .footer .workflow-footer .icon-workflow-logo {
   width: 100px;
   height: auto;
   line-height: 0;
 }
-footer .footer .workflow-footer > div {
+
+footer .footer .workflow-footer>div {
   display: grid;
   gap: 40px 30px;
 }
-footer .footer .workflow-footer > div > div {
+
+footer .footer .workflow-footer>div>div {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 24px;
 }
-footer .footer .workflow-footer > div > div:last-child {
+
+footer .footer .workflow-footer>div>div:last-child {
   flex-direction: row;
   gap: 4px;
 }
-footer .footer .workflow-footer > div > div:last-child .icon {
+
+footer .footer .workflow-footer>div>div:last-child .icon {
   width: 40px;
   height: 40px;
 }
-footer .footer .workflow-footer > div > div a {
+
+footer .footer .workflow-footer>div>div a {
   line-height: 21px;
-}
-@media screen and (min-width: 768px) {
-  footer .footer .workflow-footer > div {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  footer .footer .workflow-footer .icon-workflow-logo {
-    width: 165px;
-  }
-  footer .footer .workflow-footer > div > div:first-child,
-  footer .footer .workflow-footer > div > div:last-child {
-    grid-column: span 2;
-  }
-}
-@media screen and (min-width: 1024px) {
-  footer .footer .workflow-footer > div {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  footer .footer .workflow-footer > div > div {
-    gap: 20px;
-  }
-  footer .footer .workflow-footer > div > div:first-child,
-  footer .footer .workflow-footer > div > div:last-child {
-    grid-column: span 1;
-  }
-  footer .footer .workflow-footer > div > div {
-    justify-content: start;
-    align-items: flex-start;
-  }
-  footer .footer .workflow-footer > div > div:first-child {
-    margin-left: 15px;
-  }
-  footer .footer .workflow-footer > div > div:last-child {
-    justify-content: center;
-    gap: 20px;
-  }
 }
 
 /* ServiceNow Footer */
@@ -90,15 +61,18 @@ footer .footer .servicenow-footer {
   font-size: 14px;
   padding: 40px 0 12px;
 }
+
 footer .footer .servicenow-footer .icon-servicenow-logo {
   width: 112px;
 }
-footer .footer .servicenow-footer > div {
+
+footer .footer .servicenow-footer>div {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-footer .footer .servicenow-footer > div > div {
+
+footer .footer .servicenow-footer>div>div {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -106,26 +80,74 @@ footer .footer .servicenow-footer > div > div {
   gap: 6px 0;
   line-height: normal;
 }
-footer .footer .servicenow-footer > div > div:nth-child(2) {
+
+footer .footer .servicenow-footer>div>div:nth-child(2) {
   padding-bottom: 5px;
 }
-footer .footer .servicenow-footer > div > div:nth-child(2) a {
+
+footer .footer .servicenow-footer>div>div:nth-child(2) a {
   margin: 0 10px;
   line-height: normal;
 }
-@media screen and (min-width: 1024px) {
-  footer .footer .servicenow-footer > div > div {
-    justify-content: flex-start;
-    align-items: start;
+
+
+@media screen and (min-width: 768px) {
+  footer .footer .workflow-footer>div {
+    grid-template-columns: repeat(2, 1fr);
   }
-  footer .footer .servicenow-footer > div > div:first-child {
+
+  footer .footer .workflow-footer .icon-workflow-logo {
+    width: 165px;
+  }
+
+  footer .footer .workflow-footer>div>div:first-child,
+  footer .footer .workflow-footer>div>div:last-child {
+    grid-column: span 2;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  footer .footer .workflow-footer>div {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  footer .footer .workflow-footer>div>div {
+    gap: 20px;
+    justify-content: start;
+    align-items: flex-start;
+  }
+
+  footer .footer .workflow-footer>div>div:first-child,
+  footer .footer .workflow-footer>div>div:last-child {
+    grid-column: span 1;
+  }
+
+  footer .footer .workflow-footer>div>div:first-child {
     margin-left: 15px;
   }
+
+  footer .footer .workflow-footer>div>div:last-child {
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
   footer .footer .servicenow-footer {
     padding-bottom: 20px;
   }
-  footer .footer .servicenow-footer > div {
+
+  footer .footer .servicenow-footer>div {
     flex-direction: row;
     justify-content: space-between;
+  }
+  
+  footer .footer .servicenow-footer>div>div {
+    justify-content: flex-start;
+    align-items: start;
+  }
+
+  footer .footer .servicenow-footer>div>div:first-child {
+    margin-left: 15px;
   }
 }

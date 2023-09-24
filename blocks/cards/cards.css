@@ -1,32 +1,39 @@
-main .section.article-header.cards-container > div.cards-wrapper{
+main .section.article-header.cards-container>div.cards-wrapper {
   padding: 0;
 }
-.cards-container .cards-wrapper{
+
+.cards-container .cards-wrapper {
   padding: 0;
   margin-top: 56px;
 }
-.cards-container h2{
-  font-family: GilroyBold;
-}
-.cards-container h3{
-  font-family: GilroyBold;
-  font-size: var( --heading-font-size-s);
+
+.cards-container h2 {
+  font-family: GilroyBold, sans-serif;
 }
 
-.cards-container .cards-wrapper h5, .cards-container .subheadline{
-  font-family: GilroyBold;
+.cards-container h3 {
+  font-family: GilroyBold, sans-serif;
+  font-size: var(--heading-font-size-s);
+}
+
+.cards-container .cards-wrapper h5,
+.cards-container .subheadline {
+  font-family: GilroyBold, sans-serif;
   font-size: var(--card-font-size-xxs);
 }
-.cards-container .cards-wrapper h4, .cards-container .headline{
-  font-family: GilroyBold;
+
+.cards-container .cards-wrapper h4,
+.cards-container .headline {
+  font-family: GilroyBold, sans-serif;
   font-size: var(--body-font-size-xs);
 }
 
-.cards-container .cards-wrapper h4 a, .cards-container .headline a {
+.cards-container .headline a,
+.cards-container .cards-wrapper h4 a{
   background: none;
 }
 
-.cards > ul {
+.cards>ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -35,13 +42,15 @@ main .section.article-header.cards-container > div.cards-wrapper{
   grid-gap: 40px;
 }
 
-.cards > ul > li {
+.cards>ul>li {
   /* border: 1px solid var(--highlight-background-color); */
   background-color: var(--background-color)
 }
-.cards > ul > li a:any-link{
+
+.cards>ul>li a:any-link {
   color: var(--text-color);
 }
+
 .cards .cards-card-body {
   margin: 16px;
 }
@@ -51,11 +60,11 @@ main .section.article-header.cards-container > div.cards-wrapper{
   overflow: hidden;
 }
 
-.cards .cards-card-body > *:first-child {
+.cards .cards-card-body>*:first-child {
   margin-top: 0;
 }
 
-.cards > ul > li p{
+.cards>ul>li p {
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
@@ -64,25 +73,25 @@ main .section.article-header.cards-container > div.cards-wrapper{
   font-size: var(--card-font-size-xs);
 }
 
-.cards > ul > li img {
+.cards>ul>li img {
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  transition: all .2s linear;
+  transition: all 0.2s linear;
 }
 
-.cards > ul > li:hover img {
-  -webkit-transform: scale(1.1);
+.cards>ul>li:hover img {
   transform: scale(1.1);
 }
 
 /* 3 columns card list */
-.cards.col-3 > ul {
+.cards.col-3>ul {
   grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
 }
-.slideup ul li{
-  transform: translate3d(0,var(--y-position,150px),0);
-  transition: transform .5s var(--transition-delay,0s);
+
+.slideup ul li {
+  transform: translate3d(0, var(--y-position, 150px), 0);
+  transition: transform 0.5s var(--transition-delay, 0s);
   background-color: #F7F7F7;
 }
 
@@ -90,45 +99,57 @@ main .section.article-header.cards-container > div.cards-wrapper{
   transform: translateY(0);
 }
 
-@media (min-width: 768px){
+@media(min-width: 768px) {
   .cards-container h3 {
     font-size: var(--heading-font-size-m);
   }
-  .cards-container .cards-wrapper h4, .cards-container .headline {
+
+  .cards-container .cards-wrapper h4,
+  .cards-container .headline {
     font-size: var(--heading-font-size-s);
   }
-  .cards > ul {
+
+  .cards>ul {
     grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
 
   }
-  .cards > ul > li p{
+
+  .cards>ul>li p {
     font-size: var(--body-font-size-xs);
   }
 }
-@media (min-width: 1024px){
+
+@media(min-width: 1024px) {
   .cards-container h3 {
     font-size: var(--card-font-size-l);
   }
-  .cards-container .cards-wrapper h4, .cards-container .headline {
+
+  .cards-container .cards-wrapper h4,
+  .cards-container .headline {
     font-size: var(--body-font-size-m);
   }
 }
-@media (min-width: 1700px){
+
+@media(min-width: 1700px) {
   .cards-container h3 {
     font-size: var(--card-font-size-xl);
   }
-  .cards-container .cards-wrapper h4, .cards-container .headline {
+
+  .cards-container .cards-wrapper h4,
+  .cards-container .headline {
     font-size: var(--heading-font-size-s);
     margin-bottom: 8px;
     margin-top: 0;
   }
-  .cards-container .cards-wrapper h5, .cards-container .subheadline {
+
+  .cards-container .cards-wrapper h5,
+  .cards-container .subheadline {
     margin-bottom: 8px;
   }
-  .cards > ul > li p{
+
+  .cards>ul>li p {
     font-size: var(--body-font-size-s);
     margin-top: 0;
   }
 
 }
-

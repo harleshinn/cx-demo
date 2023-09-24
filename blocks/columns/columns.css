@@ -1,4 +1,4 @@
-.columns > div {
+.columns>div {
   display: flex;
   flex-direction: column;
 }
@@ -7,72 +7,81 @@
   width: 100%;
 }
 
-.columns > div > div {
+.columns>div>div {
   order: 1;
 }
 
-.columns > div > .columns-img-col {
+.columns>div>.columns-img-col {
   order: 0;
 }
 
-.columns > div > .columns-img-col img {
+.columns>div>.columns-img-col img {
   display: block;
 }
 
 @media (min-width: 768px) {
-  .columns > div {
+  .columns>div {
     align-items: center;
     flex-direction: unset;
     gap: 32px;
   }
 
-  .columns > div > div {
+  .columns>div>div {
     flex: 1;
     order: unset;
   }
 }
 
 /* Custom style: Author and Article Header */
-main .section.author-header .columns > div,
-main .section.article-header .columns > div {
+main .section.author-header .columns>div,
+main .section.article-header .columns>div {
   gap: 24px 30px;
 }
+
 main .section.author-header .columns .columns-img-col img,
 main .section.article-header .columns .columns-img-col img {
   border-radius: 6px;
 }
-main .section.article-header .columns > div > div > p:first-child {
+
+main .section.article-header .columns>div>div>p:first-child {
   font-size: 14px;
   margin-bottom: 20px;
 }
-main .section.author-header .columns > div > div > p:last-child,
-main .section.article-header .columns > div > div > p:last-child {
+
+main .section.author-header .columns>div>div>p:last-child,
+main .section.article-header .columns>div>div>p:last-child {
   margin-bottom: 0;
 }
-main .section.article-header .columns > div > div > p:last-child {
+
+main .section.article-header .columns>div>div>p:last-child {
   text-align: justify;
 }
+
 @media screen and (min-width: 768px) {
   main .section.author-header .columns .columns-img-col img,
   main .section.article-header .columns .columns-img-col img {
     border-radius: 12px;
   }
-  main .section.article-header .columns > div > div > p:first-child {
+
+  main .section.article-header .columns>div>div>p:first-child {
     font-size: 16px;
   }
 }
+
 @media screen and (min-width: 1024px) {
-  main .section.author-header .columns > div,
-  main .section.article-header .columns > div {
+  main .section.author-header .columns>div,
+  main .section.article-header .columns>div {
     column-gap: calc(40px + 100% * (1/12));
   }
 }
+
 @media screen and (min-width: 1700px) {
-  main .section.author-header .columns > div,
-  main .section.article-header .columns > div {
+  main .section.author-header .columns>div,
+  main .section.article-header .columns>div {
     column-gap: calc(40px + 100% * (2/12));
   }
-  main .section.article-header .columns > div > div > p:first-child {
+
+  main .section.article-header .columns>div>div>p:first-child {
     font-size: 18px;
   }
 }

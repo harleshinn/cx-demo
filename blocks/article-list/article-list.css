@@ -63,7 +63,7 @@ main .article-list-container {
   justify-content: center;
   margin-top: 40px;
   margin-bottom: 0;
-  border-bottom: 1px solid rgba(41,62,64,20%);
+  border-bottom: 1px solid rgba(41 62 64 / 20%);
   padding-bottom: 16px;
   color: #5b6f70;
   font-size: 14px;
@@ -78,7 +78,7 @@ main .article-list-container {
   line-height: 48px;
   margin-bottom: 80px;
   background: transparent;
-  border: 1px solid rgba(41,62,64,20%);
+  border: 1px solid rgba(41 62 64 / 20%);
   color: #000;
   transition: background .1s linear;
   padding: 0 40px;
@@ -86,5 +86,5 @@ main .article-list-container {
 }
 
 .article-list-container .article-list-wrapper .secondary-button:hover {
-  background: rgba(41,62,64,20%);
+  background: rgba(41 62 64 / 20%);
 }
