@@ -67,7 +67,7 @@ class Gnav {
                         </ul>
                       </div>
                     </div>`;
-    const containerResults = createTag('div', { class: 'search-container' }, html);
+    const containerResults = createTag('div', { class: 'search-container hide' }, html);
     const searchInput = createTag('input', { class: 'gnav-search-input', placeholder: label });
     const searchResults = createTag('div', { class: 'gnav-search-results' });
 
