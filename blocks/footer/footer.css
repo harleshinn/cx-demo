@@ -66,12 +66,13 @@ footer .footer .servicenow-footer .icon-servicenow-logo {
   width: 112px;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 footer .footer .servicenow-footer>div {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-
+/* stylelint-disable-next-line no-descending-specificity */
 footer .footer .servicenow-footer>div>div {
   display: flex;
   flex-wrap: wrap;
