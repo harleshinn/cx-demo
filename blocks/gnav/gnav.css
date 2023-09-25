@@ -8,28 +8,28 @@ main .section.article-header.cards-container>div.cards-wrapper {
 }
 
 .cards-container h2 {
-  font-family: GilroyBold;
+  font-family: GilroyBold, sans-serif;
 }
 
 .cards-container h3 {
-  font-family: GilroyBold;
+  font-family: GilroyBold, sans-serif;
   font-size: var(--heading-font-size-s);
 }
 
 .cards-container .cards-wrapper h5,
 .cards-container .subheadline {
-  font-family: GilroyBold;
+  font-family: GilroyBold, sans-serif;
   font-size: var(--card-font-size-xxs);
 }
 
 .cards-container .cards-wrapper h4,
 .cards-container .headline {
-  font-family: GilroyBold;
+  font-family: GilroyBold, sans-serif;
   font-size: var(--body-font-size-xs);
 }
 
-.cards-container .cards-wrapper h4 a,
-.cards-container .headline a {
+.cards-container .headline a,
+.cards-container .cards-wrapper h4 a {
   background: none;
 }
 
@@ -105,7 +105,7 @@ main .section.article-header.cards-container>div.cards-wrapper {
   display: none;
 }
 
-/** gnav search**/
+/* gnav search */
 .gnav-search-field {
   display: flex;
   flex-direction: row;
@@ -119,7 +119,7 @@ main .section.article-header.cards-container>div.cards-wrapper {
   height: 32px;
   margin: 0 0 0 20px;
   outline: none;
-  padding: 8px 0 8px 0;
+  padding: 8px 0;
   text-indent: 20px;
   vertical-align: top;
   width: inherit;

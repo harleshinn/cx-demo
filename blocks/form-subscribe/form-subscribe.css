@@ -1,3 +1,4 @@
+/* stylelint-disable -- selector-class-pattern. */
 .form-subscribe .form-subscribe__wrapper {
   display: flex;
   flex-direction: column-reverse;
@@ -39,7 +40,7 @@
 
 .form-subscribe .form-subscribe__form .mktoFieldWrap .mktoField {
   border: 0;
-  padding: 20px 10px 20px;
+  padding: 20px 10px;
   min-width: 100% !important;
   display: block;
   border-radius: 0;
