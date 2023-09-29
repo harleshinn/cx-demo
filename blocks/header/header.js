@@ -1,3 +1,4 @@
+// eslint-disable-next-line object-curly-newline
 import { getMetadata, decorateIcons, buildBlock, decorateBlock, loadBlock } from '../../scripts/lib-franklin.js';
 import { toggleSearch } from '../gnav/gnav.js';
 import createTag from '../../utils/tag.js';
@@ -87,7 +88,6 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 }
 
-
 async function buildSeachNav() {
   const searchNav = createTag('div', { class: 'search-nav' });
   // auto block in search form
@@ -95,7 +95,6 @@ async function buildSeachNav() {
   searchNav.append(searchForm);
   decorateBlock(searchForm);
   loadBlock(searchForm);
-
 }
 /**
  * decorates the header, mainly the nav
@@ -108,9 +107,25 @@ export default async function decorate(block) {
   const resp = await fetch(`${navPath}.plain.html`);
 
   if (resp.ok) {
-
-
     const html = await resp.text();
+
+    // @toDo:
+    // each time an item in the nav is clicked should show
+    // first child item and sub-item visible as well (all the first items of that branch)
+
+    const showActiveSection = (e) => {
+      const sibling = e.target.nextElementSibling;
+      const highlightedChild = sibling.querySelectorAll('.highlight');
+      const firstChild = sibling.querySelector('li');
+      const activeFirstCol = sibling.querySelector('.nav--third-level');
+
+      highlightedChild.forEach((el) => {
+        el.classList.remove('highlight');
+      });
+
+      firstChild.className = 'highlight';
+      activeFirstCol.classList.add('active');
+    };
 
     // decorate nav DOM
     const nav = document.createElement('nav');
@@ -141,9 +156,7 @@ export default async function decorate(block) {
     const navTools = nav.querySelector('.nav-tools .icon-search');
     await buildSeachNav();
 
-
-
-    navTools.addEventListener('click', (e) => {
+    navTools.addEventListener('click', () => {
       toggleSearch();
     });
 
@@ -166,53 +179,31 @@ export default async function decorate(block) {
     navWrapper.append(nav);
     block.append(navWrapper);
 
-  // Custom code: adding classes to nav and hiding/showing nav on hover
+    // Custom code: adding classes to nav and hiding/showing nav on hover
     navSections.querySelectorAll('.nav-drop > ul > li').forEach((drop) => {
       drop.querySelector('ul').classList.add('nav--third-level');
       drop.querySelector('.nav--third-level > li > ul').classList.add('active');
 
-      drop.addEventListener('mouseenter', (e) => {
+      drop.addEventListener('mouseenter', () => {
         drop.querySelector('ul').classList.add('active');
       });
 
-      drop.addEventListener('mouseleave', (e) => {
+      drop.addEventListener('mouseleave', () => {
         drop.querySelector('ul').classList.remove('active');
       });
 
-
       drop.querySelectorAll('.nav--third-level > li').forEach((thirdLevel) => {
-
-        if(thirdLevel.querySelector('ul') !== null) {
-          thirdLevel.addEventListener('mouseenter', (e) => {
+        if (thirdLevel.querySelector('ul') !== null) {
+          thirdLevel.addEventListener('mouseenter', () => {
             thirdLevel.querySelector('ul').classList.add('active');
           });
 
-          thirdLevel.addEventListener('mouseleave', (e) => {
+          thirdLevel.addEventListener('mouseleave', () => {
             thirdLevel.querySelector('ul').classList.remove('active');
           });
         }
       });
     });
-
-    // @toDo:
-    // each time an item in the nav is clicked should show
-    // first child item and sub-item visible as well (all the first items of that branch)
-
-    const showActiveSection = function(e){
-      let sibling = e.target.nextElementSibling;
-      let highlightedChild = sibling.querySelectorAll('.highlight');
-      let firstChild = sibling.querySelector('li');
-      let activeFirstCol = sibling.querySelector('.nav--third-level');
-
-      highlightedChild.forEach(function(el, i) {
-        el.classList.remove("highlight");
-      });
-
-      firstChild.className = 'highlight';
-      activeFirstCol.classList.add("active");
-    }
-
-
 
     // Custom code:
     // transform strong title into h2
@@ -223,6 +214,5 @@ export default async function decorate(block) {
       navTitle.textContent = title.textContent;
       title.replaceWith(navTitle);
     });
-
   }
 }

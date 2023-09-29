@@ -130,7 +130,7 @@ function loadDelayed() {
  * Ex: marquee--small--contained- -> marquee small contained
  * @param {HTMLElement} parent
  */
- export function cleanVariations(parent) {
+export function cleanVariations(parent) {
   const variantBlocks = parent.querySelectorAll('[class$="-"]');
   return Array.from(variantBlocks).map((variant) => {
     const { className } = variant;

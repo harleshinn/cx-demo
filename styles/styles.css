@@ -9,6 +9,7 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
+ 
 
  :root {
   /* colors */
@@ -26,7 +27,6 @@
   --brand-blue-lighter: #1a5d68;
   --brand-black: #000;
   --brand-gray: #999;
-
   --btn-border-radius: 6px;
   --brand-opacity: 0.5;
 
@@ -40,7 +40,7 @@
   --body-font-size-s: 18px;
   --body-font-size-xs: 16px;
 
-  /* Card font sizes*/
+  /* Card font sizes */
   --card-font-size-xxs: 12px;
   --card-font-size-xs: 14px;
   --card-font-size-l: 28px;
@@ -51,8 +51,6 @@
   --heading-font-size-xl: 22px;
   --heading-font-size-l: 20px;
   --heading-font-size-m: 18px;
-  /* --heading-font-size-s: 20px;
-  --heading-font-size-xs: 18px; */
 
   /* nav height */
   --nav-height: 80px;
@@ -74,8 +72,6 @@
     --heading-font-size-xl: 28px;
     --heading-font-size-l: 24px;
     --heading-font-size-m: 22px;
-    /* --heading-font-size-s: 24px;
-    --heading-font-size-xs: 22px; */
   }
 }
 
@@ -85,8 +81,6 @@
     --heading-font-size-xl: 36px;
     --heading-font-size-l: 28px;
     --heading-font-size-m: 24px;
-    /* --heading-font-size-s: 24px;
-    --heading-font-size-xs: 22px; */
   }
 }
 
@@ -97,8 +91,6 @@
     --heading-font-size-xl: 48px;
     --heading-font-size-l: 36px;
     --heading-font-size-m: 28px;
-    /* --heading-font-size-s: 24px;
-    --heading-font-size-xs: 22px; */
   }
 }
 
@@ -226,7 +218,6 @@ a.button:hover, a.button:focus, button:hover, button:focus  {
 }
 
 main .section a {
-  /*border-bottom: 2px solid var(--link-hover-color);*/
   background-image: linear-gradient(var(--link-hover-color), var(--link-hover-color));
   background-size: .1rem .1rem;
   background-repeat: repeat-x;
@@ -337,15 +328,18 @@ main .section.author-header, main .section.article-header {
   background-color: #f7f7f7;
   padding: 0;
 }
+
 main .section.author-header > div, main .section.article-header > div {
   box-sizing: border-box;
   padding: 80px 20px;
 }
+
 @media screen and (min-width: 768px) {
   main .section.author-header > div, main .section.article-header > div {
     padding: 80px 30px;
   }
 }
+
 @media screen and (min-width: 1024px) {
   main .section.author-header > div, main .section.article-header > div {
     padding: 80px 40px;
