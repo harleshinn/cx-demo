@@ -7,18 +7,18 @@ async function fetchArticles() {
 }
 
 function buildArticle(article) {
-  const picture = createOptimizedPicture(article.image, article.imageAlt, true, [{
-    width: '750',
-  }]);
-
-  const articleEl = document.createElement('li');
-  articleEl.innerHTML = `
-    <div class="article-card-image">${picture.outerHTML}</div>
+    const picture = createOptimizedPicture(article.image, article.imageAlt, true, [{ width: '750' }])
+    
+    const articleEl = document.createElement('li');
+    articleEl.innerHTML = `<a href="${article.path}" class="article-card-link">
+    <div class="article-card-image">
+        ${picture.outerHTML}
+    </div>
     <div class="article-card-content">
         <h5>Article</h5>
         <h4>${article.title}</h4>
         <p>${article.description}</p>
-    </div>
+    </div></a>
     `;
 
   return articleEl;

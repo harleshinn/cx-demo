@@ -9,6 +9,10 @@ main .article-list-container {
   margin-top: 56px;
 }
 
+.article-list-container .article-list-wrapper .article-card-link {
+  background-image: none;
+}
+
 .article-list-container .article-list-wrapper h2 {
   font-size: 48px;
 }
