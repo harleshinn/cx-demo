@@ -2,7 +2,7 @@ import { createOptimizedPicture } from '../../scripts/lib-franklin.js';
 import createTag from '../../utils/tag.js';
 
 async function fetchBlogArticleIndex() {
-  const index = '/query-index.json' ;
+  const index = '/query-index.json';
   const resp = await fetch(index);
   const json = await resp.json();
   const lookup = {};
@@ -14,10 +14,10 @@ async function fetchBlogArticleIndex() {
 
 function decorateCard(hit) {
   const {
-    title, description, image, imageAlt
+    title, description, image, imageAlt,
   } = hit;
   const path = hit.path.split('.')[0];
-  const picture = createOptimizedPicture(image, imageAlt?imageAlt:title, false, [{ width: '750' }]);
+  const picture = createOptimizedPicture(image, imageAlt || title, false, [{ width: '750' }]);
   const pictureTag = picture.outerHTML;
   const html = `<div class="cards-card-image">${pictureTag}</div>
       <div class="cards-card-body">
@@ -58,7 +58,6 @@ function highlightTextElements(terms, elements) {
 async function populateSearchResults(searchTerms, resultsContainer) {
   const limit = 12;
   const terms = searchTerms.toLowerCase().split(' ').map((e) => e.trim()).filter((e) => !!e);
-  const nav = document.querySelector('.gnav');
   const sectionHidden = document.querySelectorAll('.section');
   const resultsWrapper = document.querySelector('.search-container');
   resultsContainer.innerHTML = '';
@@ -91,26 +90,24 @@ async function populateSearchResults(searchTerms, resultsContainer) {
 
     if (!hits.length) {
       sectionHidden.forEach((element) => {
-        if(element.classList.contains('hide')){
+        if (element.classList.contains('hide')) {
           element.classList.toggle('hide');
         }
       });
-
     } else {
-      if(resultsWrapper.classList.contains('hide')){
+      if (resultsWrapper.classList.contains('hide')) {
         resultsWrapper.classList.toggle('hide');
       }
       sectionHidden.forEach((element) => {
-        if(!element.classList.contains('hide')){
+        if (!element.classList.contains('hide')) {
           element.classList.toggle('hide');
         }
       });
     }
-
     highlightTextElements(terms, resultsContainer.querySelectorAll('h3, .article-card-category, .article-card-body > p'));
-  }else{
+  } else {
     sectionHidden.forEach((element) => {
-        element.classList.toggle('hide');
+      element.classList.toggle('hide');
     });
     resultsWrapper.classList.toggle('hide');
   }

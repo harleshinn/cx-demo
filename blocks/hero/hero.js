@@ -1,5 +1,4 @@
 export default function decorate(block) {
-
   // setup image columns
   [...block.children].forEach((row) => {
     [...row.children].forEach((col) => {
@@ -9,11 +8,10 @@ export default function decorate(block) {
         if (picWrapper && picWrapper.children.length === 1) {
           // picture is only content in column
           picWrapper.classList.add('hero-img-col');
-        } 
+        }
       }
-      
       const content = row.querySelector('div');
-      if(content) {
+      if (content) {
         const contentWrapper = content.closest('div');
         contentWrapper.classList.add('hero-content-col');
       }

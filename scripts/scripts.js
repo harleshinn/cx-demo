@@ -56,6 +56,20 @@ function buildAutoBlocks(main) {
 }
 
 /**
+ * Decorates the header element.
+ * @param {Element} main The header element
+ */
+export function decorateHeader(header) {
+  const section = document.createElement('section');
+  section.setAttribute('id', 'naas-header-old');
+  section.setAttribute('class', 'naas-header-old-section');
+  section.dataset.sourceId = 'psc';
+  section.dataset.domain = 'https://www.webdev.servicenow.com';
+  section.dataset.version = 'v1';
+  header.prepend(section);
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -76,7 +90,11 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+  const header = doc.querySelector('header');
   const main = doc.querySelector('main');
+  if (header) {
+    decorateHeader(header);
+  }
   if (main) {
     decorateMain(main);
     document.body.classList.add('appear');
@@ -130,7 +148,7 @@ function loadDelayed() {
  * Ex: marquee--small--contained- -> marquee small contained
  * @param {HTMLElement} parent
  */
- export function cleanVariations(parent) {
+export function cleanVariations(parent) {
   const variantBlocks = parent.querySelectorAll('[class$="-"]');
   return Array.from(variantBlocks).map((variant) => {
     const { className } = variant;

@@ -1,6 +1,19 @@
 import { getMetadata } from '../../scripts/lib-franklin.js';
 import createTag from '../../utils/tag.js';
 
+/** Toggle search button */
+export function toggleSearch() {
+  const searchWrapper = document.querySelector('.nav-tools .gnav-search');
+  const searchContainerHidden = document.querySelector('.search-container');
+  const sectionHidden = document.querySelectorAll('.section');
+  searchWrapper.classList.toggle('hide');
+  if (searchContainerHidden.querySelector('ul').childElementCount) {
+    searchContainerHidden.classList.toggle('hide');
+    sectionHidden.forEach((element) => {
+      element.classList.toggle('hide');
+    });
+  }
+}
 
 class Gnav {
   constructor(body, el) {
@@ -12,10 +25,7 @@ class Gnav {
   init = () => {
     this.state = {};
 
-    const nav = createTag('nav', { class: 'gnav' });
-
     const mainnav = document.querySelector('.nav-tools');
-
 
     // disabled search as not in desktop design
     const enableSearch = getMetadata('enable-search');
@@ -23,13 +33,11 @@ class Gnav {
       const div = createTag('div', { class: 'search' });
       div.innerHTML = '<p>Search</p>';
       this.body.append(div);
-
       this.search = this.decorateSearch();
       if (this.search) {
         mainnav.append(this.search);
       }
     }
-
 
     window.addEventListener('resize', this.resizeContent);
   };
@@ -41,7 +49,6 @@ class Gnav {
       const label = searchBlock.querySelector('p').textContent;
       const searchEl = createTag('div', { class: 'gnav-search hide' });
       const searchBar = this.decorateSearchBar(label);
-
       searchEl.append(searchBar);
       return searchEl;
     }
@@ -71,15 +78,12 @@ class Gnav {
       this.clearSearchInput();
     });
 
-
     searchInput.addEventListener('input', (e) => {
-      if(!this.onSearchInput){
+      if (!this.onSearchInput) {
         this.loadSearchNav();
-      }
-      else{
+      } else {
         this.onSearchInput(e.target.value, containerResults.querySelector('ul'));
       }
-
     });
 
     searchField.append(searchInput, clearButton);
@@ -94,46 +98,25 @@ class Gnav {
   };
 
   clearSearchInput = () => {
-    toggleSearch();
-
+    this.toggleSearch();
   };
-
 }
 export default async function init(blockEl) {
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta).pathname : '/nav';
   const resp = await fetch(`${navPath}.plain.html`);
   const html = await resp.text();
-
-
-    if (html) {
-      try {
-        const parser = new DOMParser();
-        const gnavDoc = parser.parseFromString(html, 'text/html');
-        const gnav = new Gnav(gnavDoc.body, blockEl);
-        gnav.init();
-      } catch (e) {
-        const { debug } = await import('../../utils/console.js');
-        if (debug) {
-          debug('Could not great global navigation', e);
-        }
+  if (html) {
+    try {
+      const parser = new DOMParser();
+      const gnavDoc = parser.parseFromString(html, 'text/html');
+      const gnav = new Gnav(gnavDoc.body, blockEl);
+      gnav.init();
+    } catch (e) {
+      const { debug } = await import('../../utils/console.js');
+      if (debug) {
+        debug('Could not great global navigation', e);
       }
     }
-
-}
-
-/** Toggle search button */
-export function toggleSearch(){
-  const searchWrapper = document.querySelector('.nav-tools .gnav-search');
-  const searchContainerHidden = document.querySelector('.search-container');
-  const sectionHidden = document.querySelectorAll('.section');
-
-  searchWrapper.classList.toggle('hide');
-  if(searchContainerHidden.querySelector('ul').childElementCount){
-    searchContainerHidden.classList.toggle('hide');
-    sectionHidden.forEach((element) => {
-        element.classList.toggle('hide');
-    });
   }
-};
-
+}

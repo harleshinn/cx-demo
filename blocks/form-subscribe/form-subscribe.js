@@ -3,13 +3,12 @@
  * @param {Element} block The form block element
  */
 export default async function decorate(block) {
-
-  const marketoForm = `<form id="mktoForm_1002"></form>`;
+  const marketoForm = '<form id="mktoForm_1002"></form>';
   const formContainer = document.querySelector('.form-subscribe div > div:nth-child(2)');
   [...block.children].forEach((row) => {
-      row.classList.add(`form-subscribe__wrapper`);
+    row.classList.add('form-subscribe__wrapper');
     [...row.children].forEach((col) => {
-      const pic = col.querySelector('picture');    
+      const pic = col.querySelector('picture');
       if (pic) {
         const picWrapper = pic.closest('div');
         if (picWrapper && picWrapper.children.length === 1) {
@@ -23,13 +22,12 @@ export default async function decorate(block) {
   formContainer.insertAdjacentHTML('beforeend', marketoForm);
 
   // Custom Form Validation
-  MktoForms2.whenRendered(function(form) {
+  MktoForms2.whenRendered((form) => {
     const formEl = form.getFormElem()[0].querySelectorAll('.mktoRequiredField');
-    formEl.forEach(field => {
+    formEl.forEach((field) => {
       field.addEventListener('blur', () => {
         form.validate();
       });
-    })
-  })
+    });
+  });
 }
-
